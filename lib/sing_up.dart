@@ -1,5 +1,6 @@
 import "package:firebase_auth/firebase_auth.dart";
 import "package:firebase_base/login.dart";
+import "package:firebase_base/phone_login.dart";
 import "package:flutter/material.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
@@ -171,14 +172,19 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
                       SizedBox(width: 20,),
-                      Column(
-                        children: [
-                          FaIcon(FontAwesomeIcons.mobile,size: 24,color: Colors.limeAccent,),
-                          Text("Number",
-                          style: TextStyle(
-                            color: Colors.white
-                          ),)
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PhoneLogIn(),));
+                        },
+                        child: Column(
+                          children: [
+                            FaIcon(FontAwesomeIcons.mobile,size: 24,color: Colors.limeAccent,),
+                            Text("Number",
+                            style: TextStyle(
+                              color: Colors.white
+                            ),)
+                          ],
+                        ),
                       )
                     ],
                   )
